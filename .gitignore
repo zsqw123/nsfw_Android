@@ -1,0 +1,7 @@
+/local.properties
+/.idea/
+/app/.idea/
+/app/local.properties
+/NSFW.zip
+/build/intermediates/lint-cache/
+/.gradle/
