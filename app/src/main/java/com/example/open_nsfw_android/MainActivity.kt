@@ -27,7 +27,6 @@ import kotlin.concurrent.thread
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-
     private var nsfwHelper: NSFWHelper? = null
     private var mainAdapter: MainAdapter? = null
     private var index = 0
@@ -86,7 +85,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-
     private fun initClickListener() {
         bt_sc_assets.setOnClickListener(this)
         bt_sc_from_other.setOnClickListener(this)
@@ -109,9 +107,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         listData = ArrayList()
         Thread(Runnable {
             for (i in list) {
-
                 val nsfwScore = i.getNsfwScore(assets)
-
 //                listData.add(MyNsfwBean(0.0f, 0.0f, lm.path, bitmap))
                 listData.add(MyNsfwBean(nsfwScore.sfw, nsfwScore.nsfw, i))
 //                val nsfwBean = nsfwHelper?.scanBitmap(bitmap)!!
@@ -119,8 +115,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 //                listData[index].nsfw = nsfwBean.nsfw
 //                rv.scrollToPosition(index)
                 index++
-
-
             }
             runOnUiThread {
                 mainAdapter?.setNewData(listData)
