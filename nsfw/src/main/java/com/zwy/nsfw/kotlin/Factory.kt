@@ -8,9 +8,14 @@ import com.zwy.nsfw.core.NSFWConfig
 import com.zwy.nsfw.core.NsfwBean
 import java.io.File
 
-
 fun Bitmap.getNsfwScore(mAssetManager: AssetManager): NsfwBean {
     val nsfwBean = NSFWHelper.init(NSFWConfig(mAssetManager)).scanBitmap(this)
+    NSFWHelper.destroyFactory()
+    return nsfwBean
+}
+
+fun Bitmap.getNsfwScore(file: File): NsfwBean {
+    val nsfwBean = NSFWHelper.init(NSFWConfig(file = file)).scanBitmap(this)
     NSFWHelper.destroyFactory()
     return nsfwBean
 }
